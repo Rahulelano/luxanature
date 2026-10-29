@@ -1,0 +1,273 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Luxa Naturals design system — Modern Luxury + Organic Wellness.
+ * Olive green, luxury gold, cream beige, charcoal black.
+ * All colors in oklch. Never hardcode colors in components.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+
+  --color-olive: var(--olive);
+  --color-olive-deep: var(--olive-deep);
+  --color-gold: var(--gold);
+  --color-gold-soft: var(--gold-soft);
+  --color-cream: var(--cream);
+  --color-charcoal: var(--charcoal);
+  --color-forest: var(--forest);
+
+  --animate-float-slow: float-slow 9s ease-in-out infinite;
+  --animate-float-mid: float-mid 7s ease-in-out infinite;
+  --animate-drip: drip 6s ease-in infinite;
+  --animate-sway: sway 12s ease-in-out infinite;
+  --animate-marquee: marquee 32s linear infinite;
+}
+
+:root {
+  --radius: 0.25rem;
+
+  --olive: oklch(0.585 0.126 125.5);
+  --olive-deep: oklch(0.38 0.085 129);
+  --gold: oklch(0.772 0.128 87.6);
+  --gold-soft: oklch(0.88 0.079 90);
+  --cream: oklch(0.958 0.015 92);
+  --charcoal: oklch(0.215 0 0);
+  --forest: oklch(0.24 0.038 140);
+
+  --background: oklch(0.981 0.008 92);
+  --foreground: oklch(0.215 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.215 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.215 0 0);
+  --primary: oklch(0.585 0.126 125.5);
+  --primary-foreground: oklch(0.985 0.01 92);
+  --secondary: oklch(0.958 0.015 92);
+  --secondary-foreground: oklch(0.3 0.03 130);
+  --muted: oklch(0.951 0.012 92);
+  --muted-foreground: oklch(0.5 0.014 110);
+  --accent: oklch(0.772 0.128 87.6);
+  --accent-foreground: oklch(0.215 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: oklch(0.895 0.015 95);
+  --input: oklch(0.895 0.015 95);
+  --ring: oklch(0.772 0.128 87.6);
+
+  --gradient-gold: linear-gradient(
+    100deg,
+    oklch(0.7 0.11 78),
+    oklch(0.86 0.13 92),
+    oklch(0.72 0.115 80)
+  );
+  --gradient-forest: linear-gradient(
+    160deg,
+    oklch(0.24 0.038 140),
+    oklch(0.19 0.024 145)
+  );
+  --gradient-cream: linear-gradient(
+    180deg,
+    oklch(0.985 0.01 92),
+    oklch(0.949 0.019 94)
+  );
+  --shadow-luxe: 0 30px 60px -30px oklch(0.24 0.038 140 / 0.35);
+  --shadow-gold: 0 20px 45px -20px oklch(0.772 0.128 87.6 / 0.55);
+  --ease-luxe: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.015em;
+  }
+}
+
+@utility font-display {
+  font-family: var(--font-display);
+}
+
+@utility text-eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+@utility gold-text {
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility bg-gradient-gold {
+  background-image: var(--gradient-gold);
+}
+
+@utility bg-gradient-forest {
+  background-image: var(--gradient-forest);
+}
+
+@utility bg-gradient-cream {
+  background-image: var(--gradient-cream);
+}
+
+@utility shadow-luxe {
+  box-shadow: var(--shadow-luxe);
+}
+
+@utility shadow-gold {
+  box-shadow: var(--shadow-gold);
+}
+
+@utility glass {
+  background: color-mix(in oklab, var(--card) 55%, transparent);
+  backdrop-filter: blur(20px) saturate(140%);
+  border: 1px solid color-mix(in oklab, var(--gold) 30%, transparent);
+}
+
+@utility glass-dark {
+  background: color-mix(in oklab, var(--cream) 8%, transparent);
+  backdrop-filter: blur(22px) saturate(140%);
+  border: 1px solid color-mix(in oklab, var(--gold) 26%, transparent);
+}
+
+@utility hairline {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in oklab, var(--gold) 65%, transparent),
+    transparent
+  );
+}
+
+@utility reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.9s var(--ease-luxe),
+    transform 0.9s var(--ease-luxe);
+}
+
+@utility reveal-in {
+  opacity: 1;
+  transform: none;
+}
+
+@utility card-3d {
+  transition:
+    transform 0.7s var(--ease-luxe),
+    box-shadow 0.7s var(--ease-luxe);
+  transform-style: preserve-3d;
+  &:hover {
+    transform: perspective(1200px) rotateX(3deg) rotateY(-4deg) translateY(-10px);
+    box-shadow: var(--shadow-luxe);
+  }
+}
+
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-22px) rotate(6deg);
+  }
+}
+
+@keyframes float-mid {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-4deg);
+  }
+  50% {
+    transform: translateY(-14px) rotate(5deg);
+  }
+}
+
+@keyframes drip {
+  0% {
+    transform: translateY(-10%) scaleY(0.9);
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(340%) scaleY(1.2);
+    opacity: 0;
+  }
+}
+
+@keyframes sway {
+  0%,
+  100% {
+    transform: translateX(0) rotate(-8deg);
+  }
+  50% {
+    transform: translateX(26px) rotate(10deg);
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
